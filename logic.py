@@ -1,4 +1,3 @@
-import speech_recognition as sr
 from translate import Translator
 import requests
 from collections import defaultdict
