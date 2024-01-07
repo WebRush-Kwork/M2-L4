@@ -54,8 +54,11 @@ class VoiceTranscriber(TextAnalysis):
         super().__init__(self.text, owner)
 
     def __recognize(self):
-        recognizer = sr.Recognizer()
-        with sr.AudioFile(self.path) as source:
-            audio = recognizer.record(source)
-        text = recognizer.recognize_google(audio)
+        try:
+            recognizer = sr.Recognizer()
+            with sr.AudioFile(self.path) as source:
+                audio = recognizer.record(source)
+            text = recognizer.recognize_google(audio, language="ru_RU")
+        except:
+            text = 'Я не понимаю'
         return text

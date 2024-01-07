@@ -50,11 +50,9 @@ def callback_query(call):
         if call.data == "voice_transcribe":
             bot.send_message(call.message.chat.id, obj.text)
         elif call.data == "voice_ans":
-            # bot.send_message(call.message.chat.id, obj)
-            pass
+            bot.send_message(call.message.chat.id, obj.response)
         elif call.data == "voice_translate":
-            pass
-            # bot.send_message(call.message.chat.id, obj)
+            bot.send_message(call.message.chat.id, obj.translation)
 
 
 @bot.message_handler(content_types=['voice'])
